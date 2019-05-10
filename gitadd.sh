@@ -1,24 +1,24 @@
 #!/bin/bash
 
 function get_current_git_branch {
-  br=`git branch | grep "*"`
-  echo ${br/* /}
+	br=`git branch | grep "*"`
+	echo ${br/* /}
 }
 
 if [ ! -d "$1" ] && [ ! -f "$1" ]; then 
-    echo "file $1 not exists"
-    exit
+	echo "file $1 not exists"
+	exit
 fi
 filename=$1
 
 comment="add file"
 if [[ $2 != "" ]]; then
-    comment=$2
+	comment=$2
 fi
 branch=`get_current_git_branch`
 
 echo "start update..."
-echo "Has chosen $branch ..."
+echo "Has chosen branch $branch ..."
 git pull
 echo "start add new file..."
 git add $filename
