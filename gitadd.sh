@@ -1,6 +1,6 @@
 #!/bin/bash
 
-function gitbranch {
+function get_current_git_branch {
   br=`git branch | grep "*"`
   echo ${br/* /}
 }
@@ -15,9 +15,10 @@ comment="add file"
 if [[ $2 != "" ]]; then
     comment=$2
 fi
-branch=`gitbranch`
+branch=`get_current_git_branch`
 
 echo "start update..."
+echo "Has chosen $branch ..."
 git pull
 echo "start add new file..."
 git add $filename
