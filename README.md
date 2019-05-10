@@ -1,1 +1,2 @@
-# buddha_bless
+# 一个列举目录的方法
+# run
